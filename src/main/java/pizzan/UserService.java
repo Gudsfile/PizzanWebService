@@ -8,14 +8,16 @@ public interface UserService {
 
     boolean addUser(User u);
 
-    List<User> getUsers();
+    boolean addAdmin(String token, User u);
 
-    boolean deleteUser(int id);
+    List<User> getUsers(String token);
 
-    boolean login(String login, String pass);
+    boolean deleteUser(String token, int id);
 
-    boolean logout();
+    String login(String login, String pass);
 
-    User getUser(int id);
+    boolean logout(String token);
+
+    User getUser(String token, int id);
 
 }

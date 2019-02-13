@@ -6,6 +6,7 @@ public class User {
     private String name;
     private String pass;
     private boolean admin;
+    private String authentificationToken;
 
     public User() {
 
@@ -48,5 +49,13 @@ public class User {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public String getAuthentificationToken() {
+        return authentificationToken;
+    }
+
+    public void setAuthentificationToken(String authentificationToken) {
+        this.authentificationToken = authentificationToken;
     }
 }

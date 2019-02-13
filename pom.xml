@@ -41,7 +41,7 @@
                             <goal>wsgen</goal>
                         </goals>
                         <configuration>
-                            <sei>septillion.pizzan.UserService</sei>
+                            <sei>septillion.pizzan.PizzanWebServicePublisher</sei>
                             <genWsdl>true</genWsdl>
                             <keep>true</keep>
                         </configuration>
