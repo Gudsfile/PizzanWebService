@@ -3,22 +3,82 @@ package pizzan;
 import javax.jws.WebService;
 import java.util.List;
 
-@WebService(name = "OrderService", targetNamespace = "http://localhost:8088")
+/**
+ * Order web service
+ * This service is used to add orders and pizzas
+ * As an admin you can add new pizza and delete them, get all customer orders
+ * As a customer you can order a pizza, get your order list
+ * Access point : http://localhost:8090/OrderService
+ */
+@WebService(name = "OrderService", targetNamespace = "http://localhost:8090")
 public interface OrderService {
 
-    boolean addPizza(String token, Pizza pizza);
+    /**
+     * Allows an admin to add a pizza to the list of available pizzas
+     * @param token admin authentification token
+     * @param name name of the new pizza
+     * @param price price of the new pizza
+     * @return true if the new pizza has been added
+     */
+    boolean addPizza(String token, String name, double price);
 
-    boolean deletePizza(String token, String name);
+    /**
+     * Allows an admin to delete a pizza from the list of available pizzas
+     * @param token admin authentification token
+     * @param id id of the pizza to delete
+     * @return true if the pizza has been deleted
+     */
+    boolean deletePizza(String token, int id);
 
-    List<Pizza> getPizzas();
+    /**
+     * Get the list of available pizzas
+     * @param token user authentification token
+     * @return the list of pizzas
+     */
+    List<Pizza> getPizzas(String token);
 
-    Pizza getPizza(String name);
+    /**
+     * Get a pizza information
+     * @param id the pizza's id
+     * @return a pizza
+     */
+    Pizza getPizza(int id);
 
-    boolean addOrder(String token, Order order);
+    /**
+     * Allows a customer to order a pizza
+     * @param token customer authentification token
+     * @param pizzaId the pizza's to order id
+     * @return true if the pizza has been ordered
+     */
+    boolean addOrder(String token, int pizzaId);
 
+    /**
+     * Allows a customer to get current orders (i.e. orders which are not paid yet)
+     * @param token user authentification token
+     * @return current orders
+     */
+    List<Order> getUnpaidOrders(String token);
+
+    /**
+     * Allows a customer to get all his orders
+     * @param token user authentification token
+     * @return user orders
+     */
+    List<Order> getUserOrders(String token);
+
+    /**
+     * Allows an admin to get the list of all orders
+     * @param token admin authentification token
+     * @return the list of all orders
+     */
     List<Order> getOrders(String token);
 
-    Order getOrder(int id);
+    /**
+     * Allows an admin to get an order informatios
+     * @param token admin authentification token
+     * @param id order id
+     * @return an order
+     */
+    Order getOrder(String token, int id);
 
-    List<Order> getUserOrders(String token, int id);
 }

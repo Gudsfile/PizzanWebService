@@ -7,41 +7,51 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebService(endpointInterface = "pizzan.UserService", serviceName = "UserService", portName = "8088")
+@WebService(endpointInterface = "pizzan.UserService", serviceName = "UserService", portName = "8090")
 public class UserServiceImpl implements UserService {
 
+    /**
+     * The list of users
+     */
     private List<User> users = new ArrayList<User>();
+    /**
+     * Alphabet used to build random string token
+     */
     static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    /**
+     * Random number used to build random string token
+     */
     static SecureRandom rnd = new SecureRandom();
+    /**
+     * Map with String token as Keys and Users as values
+     */
     private Map<String, User> tokenMap = new HashMap<>();
 
     public UserServiceImpl() {
-        users.add(new User(1, "admin1", "admin", true));
+        users.add(new User(1, "admin", "admin", true));
     }
 
     @Override
-    public boolean addUser(User u) {
+    public boolean addUser(String name, String pass) {
         System.out.println("addUser method has been invoked:");
-        if (u.getName().equals("") || u.getPass().equals("")) {
+        if (name.equals("") || pass.equals("")) {
             System.out.println("user null");
             return false;
         } else {
-            u.setId(users.size()+1);
-            u.setAdmin(false);
+            User u = new User(users.size()+1, name, pass, false);
             return users.add(u);
         }
     }
 
     @Override
-    public boolean addAdmin(String token, User u) {
+    public boolean addAdmin(String token, String name, String pass) {
         System.out.println("addAdmin method has been invoked:");
         if (tokenMap.get(token) != null && tokenMap.get(token).isAdmin()) {
-            if (u.getName().equals("") || u.getPass().equals("")) {
+            if (name.equals("") || pass.equals("")) {
                 System.out.println("user null");
                 return false;
             } else {
-                u.setId(users.size()+1);
-                u.setAdmin(true);
+                User u = new User(users.size()+1, name, pass, true);
                 return users.add(u);
             }
         } else {
@@ -120,6 +130,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * Build a random char string
+     * @param len lenghts of the string to build
+     * @return a random string
+     */
     String tokenBuilder( int len ){
         StringBuilder sb = new StringBuilder( len );
         for( int i = 0; i < len; i++ )
@@ -127,6 +142,10 @@ public class UserServiceImpl implements UserService {
         return sb.toString();
     }
 
+    /**
+     * Get the user Map<String token, User>
+     * @return the user Map<String token, User>
+     */
     public Map<String, User> getTokenMap() {
         return tokenMap;
     }

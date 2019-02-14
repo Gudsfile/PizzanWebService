@@ -2,17 +2,25 @@ package pizzan;
 
 public class Pizza {
 
+    private int id;
     private String name;
-    private String desc;
     private double price;
 
     public Pizza() {
     }
 
-    public Pizza(String name, String desc, double price) {
+    public Pizza(int id, String name, double price) {
+        this.id = id;
         this.name = name;
-        this.desc = desc;
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -21,14 +29,6 @@ public class Pizza {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 
     public double getPrice() {

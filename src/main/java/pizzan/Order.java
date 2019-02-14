@@ -10,11 +10,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, int customerId, int pizzaId, boolean paid) {
+    public Order(int id, int customerId, int pizzaId) {
         this.id = id;
         this.customerId = customerId;
         this.pizzaId = pizzaId;
-        this.paid = paid;
     }
 
     public int getId() {
