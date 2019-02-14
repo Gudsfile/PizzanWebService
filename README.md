@@ -67,7 +67,7 @@ Type     | Description
 -------- | -------------
 Boolean  | true if the customer has been added
 
---
+---
 
 #### addAdmin
 Allows an admin to add another admin
@@ -88,7 +88,7 @@ Type    | Description
 ------- | -------------
 String  | pass admin's password
 
---
+---
 
 #### deleteUser
 Allows an admin to delete a user using this user's id
@@ -108,7 +108,7 @@ Type     | Description
 -------- | -------------
 Boolean  | true if the user has been deleted
 
---
+---
 
 #### login
 Login a user and return a unique authentification token that is to be used for every request on the api
@@ -128,7 +128,7 @@ Type   | Description
 ------ | -------------
 String | a unique 64 char random string;
 
---
+---
 
 #### logout
 Logout a user and remove his token from the list of current users token
@@ -147,7 +147,7 @@ Type     | Description
 -------- | -------------
 Boolean  | true if the user has been loged out
 
---
+---
 
 #### getUsers
 Allows an admin to get the list of users
@@ -166,7 +166,7 @@ Type        | Description
 ----------- | -------------
 List<User>  | the list of users
 
---
+---
 
 #### getUser
 Allows an admin to get a user information
@@ -209,7 +209,7 @@ Type    | Description
 ------- | -------------
 Boolean | true if the new pizza has been added
 
---
+---
 
 #### deletePizza
 Allows an admin to delete a pizza from the list of available pizzas
@@ -229,7 +229,7 @@ Type    | Description
 ------- | -------------
 Boolean | true if the pizza has been deleted
 
---
+---
 
 #### getPizzas
 Get the list of available pizzas
@@ -248,7 +248,7 @@ Type        | Description
 ----------- | -------------
 List<Pizza> | the list of pizzas
 
---
+---
 
 #### getPizza
 Get a pizza information
@@ -268,7 +268,7 @@ Type  | Description
 ----- | -------------
 Pizza | a pizza
 
---
+---
 
 #### addOrder
 Allows a customer to order a pizza
@@ -288,7 +288,7 @@ Type    | Description
 ------- | -------------
 boolean | true if the pizza has been ordered
 
---
+---
 
 #### getUnpaidOrders
 Allows a customer to get current orders (i.e. orders which are not paid yet)
@@ -307,7 +307,7 @@ Type        | Description
 ----------- | -------------
 List<Order> | current orders
 
---
+---
 
 #### getUserOrders
 Allows a customer to get all his orders
@@ -326,7 +326,7 @@ Type        | Description
 ----------- | -------------
 List<Order> | user orders
 
---
+---
 
 #### getOrders
 Allows an admin to get the list of all orders
@@ -345,7 +345,7 @@ Type        | Description
 ----------- | -------------
 List<Order> | the list of all orders
 
---
+---
 
 #### getOrder
 Allows an admin to get an order informations
@@ -386,7 +386,7 @@ Type   | Description
 ------ | -------------
 double | the total price
 
---
+---
 
 #### getTotalDebt
 Allows a user to pay the total price and set his orders to paid
@@ -405,6 +405,6 @@ Type    | Description
 ------- | -------------
 boolean | true if the user has paid
 
---
+---
 
 
