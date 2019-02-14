@@ -1,8 +1,8 @@
-#PIZZAN API
+# PIZZAN API
 
 PIZZAN API is a mini-project realized, in pairs by [Alexis](https://github.com/ixelaz) and [Theophile](https://github.com/Gudsfile), as part of the SOAP Service Oriented Architecture and Service Exposure course.
 
-##Context
+## Context
 Realize a service-oriented architecture in the form of extended web services (in SOAP) in a pizzeria.  
 This pizzaria has three services:
 
@@ -29,13 +29,13 @@ As a customer you can get the total debt you have and pay your orders.
 Access point : [http://localhost:8090/paymentservice](http://localhost:8090/paymentservice)  
 Docker access point : [http://localhost:8090/ws/paymentservice](http://localhost:8090/ws/paymentservice)
 
-##Usage
+## Usage
 
-###Requirements
+### Requirements
 * Java [install OpenJDK 11](https://jdk.java.net/11/)
 * Maven [install Maven](https://maven.apache.org)
 
-###Deployment
+### Deployment
 
 * Local
 
@@ -45,326 +45,362 @@ Docker access point : [http://localhost:8090/ws/paymentservice](http://localhost
 
 		sudo docker run --rm --name PizzanService-tomcat -v ws.war:/usr/local/tomcat/webapps/ws.war -it -p 8080:8080 tomcat:9.0.12-jre10-slim
 
-##Documentation API
+## API Documentation
 
-###UserService
+### UserService
 
-####addUser
+#### addUser
 Add a customer
 
 	boolean addUser(String name, String pass);
 
-######Parameters
+###### Parameters
+
 Name | Description
 ---- | -------------
 name | **String** \| *customer's name*
 pass | **String** \| *customer's password*
 
-######Responses
+###### Responses
+
 Type     | Description
 -------- | -------------
 Boolean  | true if the customer has been added
 
 --
 
-####addAdmin
+#### addAdmin
 Allows an admin to add another admin
 
 	boolean addAdmin(String token, String name, String pass);
 
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token*
 name  | **String** \| *customer's name*
 pass  | **String** \| *customer's password*
 
-######Responses
+###### Responses
+
 Type    | Description
 ------- | -------------
 String  | pass admin's password
 
 --
 
-####deleteUser
+#### deleteUser
 Allows an admin to delete a user using this user's id
 
 	boolean deleteUser(String token, int id);
 
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token token*
 id    | **Integer** \| *user's id to be deleted*
 
-######Responses
+###### Responses
+
 Type     | Description
 -------- | -------------
 Boolean  | true if the user has been deleted
 
 --
 
-####login
+#### login
 Login a user and return a unique authentification token that is to be used for every request on the api
 
 	String login(String login, String pass);
 
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 login | **String** \| *user login*
 pass  | **String** \| *user password*
 
-######Responses
+###### Responses
+
 Type   | Description
 ------ | -------------
 String | a unique 64 char random string;
 
 --
 
-####logout
+#### logout
 Logout a user and remove his token from the list of current users token
 
 	boolean logout(String token);
 
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *user token*
 
-######Responses
+###### Responses
+
 Type     | Description
 -------- | -------------
 Boolean  | true if the user has been loged out
 
 --
 
-####getUsers
+#### getUsers
 Allows an admin to get the list of users
 
 	List<User> getUsers(String token);
 
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token*
 
-######Responses
+###### Responses
+
 Type        | Description
 ----------- | -------------
 List<User>  | the list of users
 
 --
 
-####getUser
+#### getUser
 Allows an admin to get a user information
 
 	User getUser(String token, int id);
 
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token*
 id    | **Integer** \| *user id*
 
-######Responses
+###### Responses
+
 Type  | Description
 ----- | -------------
 User  | a user
 
 ---
 
-###OrderService
+### OrderService
 
-####addPizzas
+#### addPizzas
 Allows an admin to add a pizza to the list of available pizzas
 
 	boolean addPizza(String token, String name, double price);
 
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token*
 name  | **String** \| *name of the new pizza*
 price | **Integer** \| *price of the new pizza*
 
-######Responses
+###### Responses
+
 Type    | Description
 ------- | -------------
 Boolean | true if the new pizza has been added
 
 --
 
-####deletePizza
+#### deletePizza
 Allows an admin to delete a pizza from the list of available pizzas
 
 	boolean deletePizza(String token, int id);
 	
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token*
 id    | **Integer** \| *id of the pizza to delete*
 
-######Responses
+###### Responses
+
 Type    | Description
 ------- | -------------
 Boolean | true if the pizza has been deleted
 
 --
 
-####getPizzas
+#### getPizzas
 Get the list of available pizzas
 
 	List<Pizza> getPizzas(String token);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *user authentification token*
 
-######Responses
+###### Responses
+
 Type        | Description
 ----------- | -------------
 List<Pizza> | the list of pizzas
 
 --
 
-####getPizza
+#### getPizza
 Get a pizza information
 
 	Pizza getPizza(String token, int id);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *user authentification token*
 id    | **Integer** \| *the pizza's id*
 
-######Responses
+###### Responses
+
 Type  | Description
 ----- | -------------
 Pizza | a pizza
 
 --
 
-####addOrder
+#### addOrder
 Allows a customer to order a pizza
 
 	boolean addOrder(String token, int pizzaId);
 		
-######Parameters
+###### Parameters
+
 Name    | Description
 ------- | -------------
 token   | **String** \| *customer authentification token*
 pizzaId | **Integer** \| *the pizza's to order id*
 
-######Responses
+###### Responses
+
 Type    | Description
 ------- | -------------
 boolean | true if the pizza has been ordered
 
 --
 
-####getUnpaidOrders
+#### getUnpaidOrders
 Allows a customer to get current orders (i.e. orders which are not paid yet)
 
 	List<Order> getUnpaidOrders(String token);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *user authentification token*
 
-######Responses
+###### Responses
+
 Type        | Description
 ----------- | -------------
 List<Order> | current orders
 
 --
 
-####getUserOrders
+#### getUserOrders
 Allows a customer to get all his orders
 
 	List<Order> getUserOrders(String token);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *user authentification token*
 
-######Responses
+###### Responses
+
 Type        | Description
 ----------- | -------------
 List<Order> | user orders
 
 --
 
-####getOrders
+#### getOrders
 Allows an admin to get the list of all orders
 
 	List<Order> getOrders(String token);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token*
 
-######Responses
+###### Responses
+
 Type        | Description
 ----------- | -------------
 List<Order> | the list of all orders
 
 --
 
-####getOrder
+#### getOrder
 Allows an admin to get an order informations
 
 	Order getOrder(String token, int id);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *admin authentification token*
 id    | **Integer** \| *order id*
 
-######Responses
+###### Responses
+
 Type  | Description
 ----- | -------------
 Order | an order
 
 ---
 
-###PaymentService
+### PaymentService
 
-####getTotalDebt
+#### getTotalDebt
 Allows a user to get the total price he needs to pay
 
 	double getTotalDebt(String token);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *user authentification token*
 
-######Responses
+###### Responses
+
 Type   | Description
 ------ | -------------
 double | the total price
 
 --
 
-####getTotalDebt
+#### getTotalDebt
 Allows a user to pay the total price and set his orders to paid
 
 	double getTotalDebt(String token);
 		
-######Parameters
+###### Parameters
+
 Name  | Description
 ----- | -------------
 token | **String** \| *user authentification token*
 
-######Responses
+###### Responses
+
 Type    | Description
 ------- | -------------
 boolean | true if the user has paid
