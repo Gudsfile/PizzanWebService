@@ -4,7 +4,10 @@ import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebService(endpointInterface = "pizzan.OrderService", serviceName = "OrderService", portName = "8090")
+/**
+ * Order service implementation
+ */
+@WebService(endpointInterface = "pizzan.OrderService", serviceName = "OrderService", portName = "8080")
 public class OrderServiceImpl implements OrderService {
 
     /**
@@ -57,12 +60,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Pizza getPizza(int id) {
+    public Pizza getPizza(String token, int id) {
         System.out.println("getPizza method has been invoked: "+id);
-        for (Pizza pizza : pizzas) {
-            if (pizza.getId() == id) {
-                return pizza;
+        if (userServiceImpl.getTokenMap().get(token) != null) {
+            for (Pizza pizza : pizzas) {
+                if (pizza.getId() == id) return pizza;
             }
+        } else {
+            System.out.println("Token error");
         }
         return null;
     }
@@ -81,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean addOrder(String token, int pizzaId) {
         System.out.println("addOrder method has been invoked: "+pizzaId);
-        if (userServiceImpl.getTokenMap().get(token) != null) {
+        if (userServiceImpl.getTokenMap().get(token) != null && !userServiceImpl.getTokenMap().get(token).isAdmin()) {
             boolean found = false;
             int i = 0;
             while(!found && i<pizzas.size()) {

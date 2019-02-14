@@ -1,9 +1,21 @@
 package pizzan;
 
+/**
+ * This class represent a pizza
+ */
 public class Pizza {
 
+    /**
+     * Pizza id
+     */
     private int id;
+    /**
+     * This pizza's name
+     */
     private String name;
+    /**
+     * This pizza's price
+     */
     private double price;
 
     public Pizza() {

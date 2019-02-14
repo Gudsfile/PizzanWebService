@@ -2,7 +2,10 @@ package pizzan;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "pizzan.PaymentService", serviceName = "PaymentService", portName = "8090")
+/**
+ * Payment service implementation
+ */
+@WebService(endpointInterface = "pizzan.PaymentService", serviceName = "PaymentService", portName = "8080")
 public class PaymentServiceImpl implements PaymentService {
 
     /**
@@ -27,7 +30,7 @@ public class PaymentServiceImpl implements PaymentService {
         double total = 0;
         if (userServiceImpl.getTokenMap().get(token) != null) {
             for (Order o : orderServiceImpl.getUnpaidOrders(token)) {
-                total += orderServiceImpl.getPizza(o.getPizzaId()).getPrice();
+                total += orderServiceImpl.getPizza(token, o.getPizzaId()).getPrice();
             }
         } else {
             System.out.println("Token error or Admin rights needed");

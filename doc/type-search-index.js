@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"pizzan","l":"Order"},{"p":"pizzan","l":"OrderService"},{"p":"pizzan","l":"OrderServiceImpl"},{"p":"pizzan","l":"PaymentService"},{"p":"pizzan","l":"PaymentServiceImpl"},{"p":"pizzan","l":"Pizza"},{"p":"pizzan","l":"PizzanWebServicePublisher"},{"p":"pizzan","l":"User"},{"p":"pizzan","l":"UserService"},{"p":"pizzan","l":"UserServiceImpl"}]

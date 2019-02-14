@@ -9,9 +9,9 @@ import java.util.List;
  * Users can login using their name and password
  * Loging in return a unique string token that is needed to execute most of the api requests
  * Admin can add new admins, delete users and get the list of all users
- * Access point : http://localhost:8090/UserService
+ * Access point : http://localhost:8080/UserService
  */
-@WebService(name = "UserService", targetNamespace = "http://localhost:8090")
+@WebService(name = "UserService", targetNamespace = "http://localhost:8080")
 public interface UserService {
 
     /**

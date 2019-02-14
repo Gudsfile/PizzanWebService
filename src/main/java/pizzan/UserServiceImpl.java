@@ -7,7 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebService(endpointInterface = "pizzan.UserService", serviceName = "UserService", portName = "8090")
+/**
+ * User service implementation
+ */
+@WebService(endpointInterface = "pizzan.UserService", serviceName = "UserService", portName = "8080")
 public class UserServiceImpl implements UserService {
 
     /**

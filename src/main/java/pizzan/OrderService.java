@@ -8,9 +8,9 @@ import java.util.List;
  * This service is used to add orders and pizzas
  * As an admin you can add new pizza and delete them, get all customer orders
  * As a customer you can order a pizza, get your order list
- * Access point : http://localhost:8090/OrderService
+ * Access point : http://localhost:8080/OrderService
  */
-@WebService(name = "OrderService", targetNamespace = "http://localhost:8090")
+@WebService(name = "OrderService", targetNamespace = "http://localhost:8080")
 public interface OrderService {
 
     /**
@@ -42,7 +42,7 @@ public interface OrderService {
      * @param id the pizza's id
      * @return a pizza
      */
-    Pizza getPizza(int id);
+    Pizza getPizza(String token, int id);
 
     /**
      * Allows a customer to order a pizza
@@ -74,7 +74,7 @@ public interface OrderService {
     List<Order> getOrders(String token);
 
     /**
-     * Allows an admin to get an order informatios
+     * Allows an admin to get an order informations
      * @param token admin authentification token
      * @param id order id
      * @return an order

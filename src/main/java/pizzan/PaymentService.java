@@ -6,9 +6,9 @@ import javax.jws.WebService;
  * Payment web service
  * This service is used to pay orders
  * As a customer you can get the total debt you have and pay your orders
- * Access point : http://localhost:8090/PaymentService
+ * Access point : http://localhost:8080/PaymentService
  */
-@WebService(name = "PaymentService", targetNamespace = "http://localhost:8090")
+@WebService(name = "PaymentService", targetNamespace = "http://localhost:8080")
 public interface PaymentService {
 
     /**

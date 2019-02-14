@@ -1,11 +1,29 @@
 package pizzan;
 
+/**
+ * This class represent a user (either an admin or a customer)
+ */
 public class User {
 
+    /**
+     * User id
+     */
     private int id;
+    /**
+     * This user's name
+     */
     private String name;
+    /**
+     * This user's password
+     */
     private String pass;
+    /**
+     * True if the user is an admin
+     */
     private boolean admin;
+    /**
+     * This user's current unique authentification token
+     */
     private String authentificationToken;
 
     public User() {

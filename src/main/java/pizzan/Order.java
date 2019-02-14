@@ -1,10 +1,25 @@
 package pizzan;
 
+/**
+ * This class represent an order
+ */
 public class Order {
 
+    /**
+     * Order id
+     */
     private int id;
+    /**
+     * This order customer's id
+     */
     private int customerId;
+    /**
+     * This order pizza's id
+     */
     private int pizzaId;
+    /**
+     * True if the order is paid
+     */
     private boolean paid = false;
 
     public Order() {
