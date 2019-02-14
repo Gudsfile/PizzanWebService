@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Order service implementation
  */
-@WebService(endpointInterface = "pizzan.OrderService", serviceName = "OrderService", portName = "8080")
+@WebService(endpointInterface = "pizzan.OrderService", serviceName = "orderservice", portName = "8080")
 public class OrderServiceImpl implements OrderService {
 
     /**

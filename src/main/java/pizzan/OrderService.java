@@ -8,9 +8,9 @@ import java.util.List;
  * This service is used to add orders and pizzas
  * As an admin you can add new pizza and delete them, get all customer orders
  * As a customer you can order a pizza, get your order list
- * Access point : http://localhost:8080/OrderService
+ * Access point : http://localhost:8080/orderservice
  */
-@WebService(name = "OrderService", targetNamespace = "http://localhost:8080")
+@WebService(name = "orderservice", targetNamespace = "http://localhost:8080")
 public interface OrderService {
 
     /**

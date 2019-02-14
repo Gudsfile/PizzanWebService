@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * User service implementation
  */
-@WebService(endpointInterface = "pizzan.UserService", serviceName = "UserService", portName = "8080")
+@WebService(endpointInterface = "pizzan.UserService", serviceName = "userservice", portName = "8080")
 public class UserServiceImpl implements UserService {
 
     /**

@@ -2,11 +2,11 @@
 <endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime' version='2.0'>
     <endpoint name="userService"
               implementation="pizzan.UserServiceImpl"
-              url-pattern="/userService"/>
+              url-pattern="/userservice"/>
     <endpoint name="orderService"
               implementation="pizzan.OrderServiceImpl"
-              url-pattern="/orderService"/>
+              url-pattern="/orderservice"/>
     <endpoint name="paymentService"
               implementation="pizzan.PaymentServiceImpl"
-              url-pattern="/paymentService"/>
+              url-pattern="/paymentservice"/>
 </endpoints>

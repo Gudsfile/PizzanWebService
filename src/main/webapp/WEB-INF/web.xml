@@ -7,14 +7,14 @@
         <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
     </listener>
     <servlet>
-        <display-name>PizzanWebService</display-name>
-        <servlet-name>PizzanWebService</servlet-name>
+        <display-name>userservice,orderservice,paymentservice</display-name>
+        <servlet-name>userservice,orderservice,paymentservice</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PizzanWebService</servlet-name>
-        <url-pattern>/PizzanWebService</url-pattern>
+        <servlet-name>userservice,orderservice,paymentservice</servlet-name>
+        <url-pattern>/userservice,/orderservice,/paymentservice</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>

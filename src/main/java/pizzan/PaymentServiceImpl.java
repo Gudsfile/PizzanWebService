@@ -5,7 +5,7 @@ import javax.jws.WebService;
 /**
  * Payment service implementation
  */
-@WebService(endpointInterface = "pizzan.PaymentService", serviceName = "PaymentService", portName = "8080")
+@WebService(endpointInterface = "pizzan.PaymentService", serviceName = "paymentservice", portName = "8080")
 public class PaymentServiceImpl implements PaymentService {
 
     /**
